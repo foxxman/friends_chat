@@ -1,0 +1,7 @@
+/**/node_modules
+
+/server/config/default.json
+
+.env
+/**/.env
+/**/.env.development

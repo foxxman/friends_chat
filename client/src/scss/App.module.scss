@@ -1,0 +1,88 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+.ChatsContainer {
+  height: 85%;
+  @media (max-width: 800px) {
+    // padding-left: 0;
+    // padding-right: 0;
+    .card {
+      width: 100%;
+    }
+  }
+}
+.Header {
+  button {
+    background: none;
+    border: none;
+    svg {
+      height: 30px;
+      width: 30px;
+      fill: #0a58ca;
+    }
+  }
+  p {
+    margin: 0;
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+}
+
+.Loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(138, 138, 138, 0.192);
+  z-index: 999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.DescCardBtns {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+  }
+}
+.AddDeskBtn {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.DeskCard {
+  width: 15rem;
+  height: 20rem;
+  transition-duration: 0.5s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
