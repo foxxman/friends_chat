@@ -8,7 +8,11 @@ import expressWs from "express-ws";
 import wsFunc, { wsSession } from "./routes/ws.routes.js";
 import path from "path";
 import { fileURLToPath } from "url";
+// cd client && npm i && npm run build && cd ../server && npm i && cd .. && cp client/build server/client -R && cd server && npm start
 
+//  docker buildx build -t friends_chat .
+//  docker run -d -p 3001:3001 --name friends_chat --rm  friends_chat
+// docker container stop friends_chat
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 

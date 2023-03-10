@@ -21,6 +21,8 @@ const authService = {
   },
   login: async (payload: ILoginData): Promise<IAuthData> => {
     const { login, password } = payload;
+    console.log(httpAuth.getUri());
+    console.log("login requested");
 
     const { data }: { data: IAuthData } = await httpAuth.post(
       `signInWithPassword`,
@@ -30,6 +32,8 @@ const authService = {
         returnSecureToken: true,
       }
     );
+    console.log("login response");
+
     return data;
   },
   refresh: async (): Promise<IAuthData> => {

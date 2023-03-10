@@ -77,6 +77,8 @@ router.post("/signInWithPassword", [
   check("login", "Empty login").exists(),
 
   async (req: Request, res: Response) => {
+    console.log("login request");
+
     try {
       const errors = validationResult(req);
 
