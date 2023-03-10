@@ -1,4 +1,3 @@
-import { WebSocket } from "ws";
 import * as dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
@@ -7,6 +6,11 @@ import routes from "./routes/index.js";
 import mongoose from "mongoose";
 import expressWs from "express-ws";
 import wsFunc, { wsSession } from "./routes/ws.routes.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const { app, getWss } = expressWs(express());
 dotenv.config();
@@ -19,7 +23,15 @@ app.use("/api", routes);
 
 app.ws("/", (ws: wsSession) => wsFunc(ws, getWss()));
 
-const PORT = process.env.PORT ?? 8080;
+const PORT = process.env.PORT ?? 3001;
+
+if (process.env.NODE_ENV === "production") {
+  app.use("/", express.static(path.join(__dirname, "../client/")));
+
+  const indexPath = path.join(__dirname, "../client/", "index.html");
+
+  app.get("*", (req, res) => res.sendFile(indexPath));
+}
 
 async function start() {
   try {
