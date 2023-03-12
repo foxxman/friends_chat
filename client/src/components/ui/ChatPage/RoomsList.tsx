@@ -2,6 +2,7 @@ import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import { Button, Form, InputGroup } from "react-bootstrap";
 import { Oval } from "react-loader-spinner";
+import { useParams } from "react-router-dom";
 import styles from "../../../scss/Chat.module.scss";
 import roomService from "../../../services/room.service";
 import chatsState, { IRoomsListItem } from "../../../store/chatsState";

@@ -6,7 +6,7 @@ import { validator } from "../../utils/validator";
 import TextField from "../common/form/TextField";
 
 const validatorConfig = {
-  deskname: {
+  roomname: {
     isRequired: {
       message: "Can't be empty",
     },

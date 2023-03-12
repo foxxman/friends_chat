@@ -1,5 +1,7 @@
-import React from "react";
+import { observer } from "mobx-react-lite";
+import React, { FC, MutableRefObject } from "react";
 import { Button, Container } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import styles from "../../scss/App.module.scss";
 import localStorageService from "../../services/localStorage.service";
 import chatsState from "../../store/chatsState";
@@ -7,7 +9,13 @@ import roomState from "../../store/roomState";
 import userState from "../../store/userState";
 import history from "../../utils/history";
 
-const Header = () => {
+interface HeaderProps {
+  headerRef: MutableRefObject<HTMLHeadElement | null>;
+}
+
+const Header: FC<HeaderProps> = observer(({ headerRef }) => {
+  const { chatId } = useParams();
+
   const exitHandler = () => {
     roomState.removeRoomState();
     chatsState.removeState();
@@ -15,7 +23,12 @@ const Header = () => {
   };
 
   return (
-    <header className={` ${styles.Header} w-100 border-bottom py-3 mb-3`}>
+    <header
+      ref={headerRef}
+      className={` ${styles.Header} ${
+        chatId ? styles.HeaderHide : ""
+      } w-100 border-bottom py-3`}
+    >
       <Container className="d-flex align-items-center justify-content-between">
         <h1 className="text-primary text-bold m-0">Friends Chat</h1>
 
@@ -43,6 +56,6 @@ const Header = () => {
       </Container>
     </header>
   );
-};
+});
 
 export default Header;

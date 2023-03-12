@@ -6,7 +6,9 @@
   flex-direction: column;
 }
 .ChatsContainer {
-  height: 85%;
+  // height: 85%;
+  // flex-grow: 1;
+  // max-height: 100%;
   @media (max-width: 800px) {
     // padding-left: 0;
     // padding-right: 0;
@@ -16,6 +18,11 @@
   }
 }
 .Header {
+  &Hide {
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
   button {
     background: none;
     border: none;
@@ -39,7 +46,7 @@
   top: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(138, 138, 138, 0.192);
+  background: rgba(138, 138, 138, 0.266);
   z-index: 999;
 
   display: flex;

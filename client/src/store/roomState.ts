@@ -2,6 +2,7 @@ import { makeAutoObservable } from "mobx";
 import { toast } from "react-toastify";
 import roomService from "../services/room.service";
 import userService, { IUserData } from "../services/user.service";
+import history from "../utils/history";
 import chatsState, { IChatMessage, IRoom, SOCKET_METHODS } from "./chatsState";
 import userState from "./userState";
 
@@ -122,6 +123,8 @@ class roomState {
   }
 
   removeRoomState() {
+    history.replace(`/chat/${userState.auth.userId}`);
+
     this.chatId = null;
     this.chatName = null;
     this.messages = null;

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import styles from "../../../scss/Chat.module.scss";
 import roomState from "../../../store/roomState";
-import TextField from "../../common/form/TextField";
 
 const MessageInput = () => {
   const [message, setMessage] = useState<string>("");
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
-    roomState.sendMessage(message);
-    setMessage("");
+
+    if (message.trim().length !== 0) {
+      roomState.sendMessage(message.trim());
+      setMessage("");
+    }
   };
 
   return (

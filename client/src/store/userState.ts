@@ -68,7 +68,7 @@ class userState {
       localStorageService.setTokens(data);
 
       this.setAuthUser(data.userId, data.login);
-      this.setIsLoading(false);
+      // this.setIsLoading(false);
 
       // history.push(`/chat/${data.userId}`);
       history.push(`/chat/`);
@@ -88,7 +88,7 @@ class userState {
       localStorageService.setTokens(data);
 
       this.setAuthUser(data.userId, data.login);
-      this.setIsLoading(false);
+      // this.setIsLoading(false);
 
       history.push(`/chat/`);
     } catch (error: any) {

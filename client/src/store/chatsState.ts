@@ -114,7 +114,7 @@ class ChatsState {
         case SOCKET_METHODS.ROOMS_LIST:
           // подгружаем список комнат
           if (msg.rooms) this.setRooms(msg.rooms);
-          userState.setIsLoading(false);
+          // userState.setIsLoading(false);
           break;
         case SOCKET_METHODS.ROOM_STATE:
           if (msg.room) roomState.setRoom(msg.room);
@@ -231,6 +231,10 @@ class ChatsState {
           method: SOCKET_METHODS.GET_ROOM_STATE,
         })
       );
+    else {
+      history.push(`/chat/${userState.auth.userId}`);
+    }
+    userState.setIsLoading(false);
   }
 
   removeState() {

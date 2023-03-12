@@ -14,8 +14,9 @@ interface RoomsListItemProps {
 const RoomsListItem: FC<RoomsListItemProps> = observer(({ room }) => {
   const clickHandler = () => {
     if (roomState.chatId !== room._id) {
-      chatsState.setChat(room._id);
       history.push(`/chat/${userState.auth.userId}/${room._id}`);
+
+      chatsState.setChat(room._id);
     }
   };
 

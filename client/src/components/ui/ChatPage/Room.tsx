@@ -7,13 +7,14 @@ import MessageInput from "./MessageInput";
 import MessageList from "./MessageList";
 import RoomHeader from "./Header/RoomHeader";
 import roomState from "../../../store/roomState";
-import { Oval } from "react-loader-spinner";
+import userState from "../../../store/userState";
 
 const Room = observer(() => {
   const { chatId } = useParams();
 
   useEffect(() => {
     if (chatId) chatsState.setChat(chatId);
+    else userState.setIsLoading(false);
   }, []);
 
   return (
