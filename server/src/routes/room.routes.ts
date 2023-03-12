@@ -105,7 +105,7 @@ router.get("/:roomId", auth, async (req: Request, res: Response) => {
     if (user && room && room.members.includes(user._id)) {
       res.send(room);
     } else {
-      res.status(401).json({ message: "Unauthorized" });
+      res.status(500).json({ message: "Unauthorized" });
     }
   } catch (error) {
     res.status(500).json({ message: "Something wrong, try later" });
