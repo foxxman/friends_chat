@@ -17,3 +17,6 @@ My pet-project with MERN stack, using WebSockets and TypeScript
 ![WebSocket](https://img.shields.io/badge/WebSocket-090909?style=for-the-badge&logo=websocket)
 ![MongoDB](https://img.shields.io/badge/MongoDB-090909?style=for-the-badge&logo=mongodb)
 ![Docker](https://img.shields.io/badge/Docker-090909?style=for-the-badge&logo=docker)
+
+## Demo 
+http://188.68.221.203/
